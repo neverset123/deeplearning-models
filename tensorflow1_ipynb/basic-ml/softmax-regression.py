@@ -81,8 +81,7 @@ with tf.Session(graph=g) as sess:
 
     for epoch in range(training_epochs):
         avg_cost = 0.
-        total_batch = mnist.train.num_examples // total number of batch (or pictures)
-
+        total_batch = mnist.train.num_examples // batch_size
         for i in range(total_batch):
             batch_x, batch_y = mnist.train.next_batch(batch_size)
             _, c = sess.run(['train', 'cost:0'], feed_dict={tf_x: batch_x,
